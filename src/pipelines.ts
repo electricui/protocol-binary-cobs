@@ -16,6 +16,7 @@ export class COBSDecoderPipeline extends Pipeline {
 
     let data = Buffer.concat([this.buffer, packet])
     let position
+
     while ((position = data.indexOf(nullByteBuffer)) !== -1) {
       const framed = data.slice(0, position)
 
@@ -35,12 +36,12 @@ export class COBSDecoderPipeline extends Pipeline {
  * The codec duplex pipeline
  */
 export default class COBSPipeline extends DuplexPipeline {
-  readPipeline: COBSEncoderPipeline
-  writePipeline: COBSDecoderPipeline
+  readPipeline: COBSDecoderPipeline
+  writePipeline: COBSEncoderPipeline
 
   constructor() {
     super()
-    this.readPipeline = new COBSEncoderPipeline()
-    this.writePipeline = new COBSDecoderPipeline()
+    this.readPipeline = new COBSDecoderPipeline()
+    this.writePipeline = new COBSEncoderPipeline()
   }
 }
