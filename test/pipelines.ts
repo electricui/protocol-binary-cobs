@@ -36,7 +36,6 @@ function generateTransformTest(testCase: Buffer) {
       .pipe(sink)
 
     source.push(testCase)
-
     assert.deepEqual(spy.getCall(0).args[0], testCase)
   }
 }

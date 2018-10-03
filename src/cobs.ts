@@ -1,6 +1,6 @@
-const debug = require('debug')('electricui-protocol-cobs')
+import { splitBufferByLength, splitBufferWithDelimiter } from './utils'
 
-import { splitBufferWithDelimiter, splitBufferByLength } from './utils'
+const debug = require('debug')('electricui-protocol-cobs')
 
 export const nullByteBuffer = Buffer.alloc(1)
 

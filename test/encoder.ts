@@ -1,6 +1,7 @@
 import 'mocha'
 
 import * as chai from 'chai'
+import { resolveAny } from 'dns'
 
 import { encode } from '../src/cobs'
 
@@ -13,7 +14,25 @@ function generateEncoderEqualityTest(testCase: Buffer, reference: Buffer) {
     assert.deepEqual(out, reference)
   }
 }
+/*
+function printBuf(buf: Buffer) {
+  let str = '{ '
 
+  let i = 0
+  for (const b of buf) {
+    str = `${str}0x${Buffer.from([b]).toString('hex')}, `
+    i++
+    if (i == 15) {
+      str += '\n'
+      i = 0
+    }
+  }
+
+  str += ' }'
+
+  console.log(str)
+}
+*/
 describe('COBS Encoder', () => {
   it(
     'correctly encodes a single 0x00',
