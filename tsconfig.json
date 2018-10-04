@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "module": "ES2015",
+    "module": "ESNext",
     "esModuleInterop": true,
-    "target": "es6",
+    "target": "ES2018",
     "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "declaration": true,
     "baseUrl": ".",
-    "outDir": "./lib/index.js",
+    "outDir": "./lib",
     "paths": {
       "*": ["node_modules/*", "src/types/*"]
     }
