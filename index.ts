@@ -1,4 +1,2 @@
-import { decode, encode } from './src/cobs'
-import { COBSPipeline } from './src/pipelines'
-
-export { encode, decode, COBSPipeline }
+export { decode, encode } from './src/cobs'
+export { default as COBSPipeline } from './src/pipelines'
