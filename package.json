@@ -43,8 +43,9 @@
   "scripts": {
     "prepack": "npm run build && silversmith prepack",
     "postpack": "silversmith postpack",
-    "test": "export TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\"}' && nyc mocha --compilers ts:ts-node/register && export TS_NODE_COMPILER_OPTIONS=\"\"",
     "benchmark": "babel-node benchmark.js",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "export TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\"}' && mocha --require ts-node/register \"test/**/*.ts\" && export TS_NODE_COMPILER_OPTIONS=\"\"",
+    "coverage": "export TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\"}' && nyc mocha- -require ts-node/register \"test/**/*.ts\" && export TS_NODE_COMPILER_OPTIONS=\"\""
   }
 }
