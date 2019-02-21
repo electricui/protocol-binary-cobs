@@ -42,7 +42,7 @@
     "typescript": "^3.3.3"
   },
   "scripts": {
-    "prepack": "npm run build && silversmith prepack",
+    "prepack": "silversmith prepack",
     "postpack": "silversmith postpack",
     "benchmark": "babel-node benchmark.js",
     "build": "rollup -c",
