@@ -13,7 +13,7 @@
     "manifest.json"
   ],
   "publishConfig": {
-    "registry": "http://127.0.0.1:7001"
+    "registry": "http://127.0.0.1:4873"
   },
   "dependencies": {
     "@electricui/core": "^0.3.18",
