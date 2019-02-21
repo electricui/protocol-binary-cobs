@@ -7,7 +7,6 @@ export default async a => {
     input: 'index.ts',
     output: [
       { format: 'cjs', file: path.resolve(__dirname, 'lib', `index.js`) },
-      { format: 'es', file: path.resolve(__dirname, 'lib', `index.mjs`) },
     ],
     plugins: [
       autoExternal({
