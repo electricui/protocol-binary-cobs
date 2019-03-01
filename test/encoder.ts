@@ -59,6 +59,14 @@ describe('COBS Encoder', () => {
   )
 
   it(
+    'correctly encodes a search packet',
+    generateEncoderEqualityTest(
+      Buffer.from([0x00, 0x40, 0x01, 0x78, 0xc3, 0x55]),
+      Buffer.from([0x00, 0x01, 0x06, 0x40, 0x01, 0x78, 0xc3, 0x55, 0x00]),
+    ),
+  )
+
+  it(
     'correctly encodes two 0x00s',
     generateEncoderEqualityTest(
       Buffer.from([0x11, 0x22, 0x33, 0x44]),
