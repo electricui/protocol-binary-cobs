@@ -5,6 +5,8 @@ const debug = require('debug')('electricui-protocol-cobs')
 export const nullByteBuffer = Buffer.alloc(1)
 
 export function encode(buffer: Buffer): Buffer {
+  debug(`Received packet for encoding`, buffer)
+
   const split = splitBufferWithDelimiter(buffer, nullByteBuffer)
   const output = [nullByteBuffer]
 
@@ -30,10 +32,16 @@ export function encode(buffer: Buffer): Buffer {
 
   output.push(nullByteBuffer)
 
-  return Buffer.concat(output)
+  const res = Buffer.concat(output)
+
+  debug(`Encoded packet: `, res)
+
+  return res
 }
 
 export function decode(buffer: Buffer): Buffer {
+  debug(`Received packet for decoding:`, buffer)
+
   const output: Array<Buffer> = []
 
   let index = 0
@@ -62,5 +70,9 @@ export function decode(buffer: Buffer): Buffer {
     index += byte
   }
 
-  return Buffer.concat(output)
+  const res = Buffer.concat(output)
+
+  debug(`Decoded packet:`, res)
+
+  return res
 }
