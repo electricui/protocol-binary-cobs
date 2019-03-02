@@ -3,9 +3,8 @@
   "version": "0.4.0",
   "description": "ElectricUI COBS Encoder and Decoder",
   "electricui-dev": true,
-  "repository": "https://Mike-Dax@github.com/Scottapotamas/electricui-interface.git",
-  "author": "Michael Orenstein <mike@whiteshadows.me>, Scott Rapson <scottapotamas@gmail.com>",
-  "license": "See LICENCE",
+  "author": "Electric UI <support@electricui.com> (https://electricui.com)",
+  "license": "SEE LICENCE IN LICENCE.MD",
   "main": "lib/index.js",
   "main-when-published": "lib/index.js.eui",
   "files": [
