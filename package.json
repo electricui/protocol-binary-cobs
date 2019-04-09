@@ -7,6 +7,7 @@
   "license": "SEE LICENCE IN LICENCE.MD",
   "main": "lib/index.js",
   "main-when-published": "lib/index.eui.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib/*",
     "manifest.json"
