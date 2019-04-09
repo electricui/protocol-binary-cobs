@@ -6,7 +6,7 @@
   "author": "Electric UI <support@electricui.com> (https://electricui.com)",
   "license": "SEE LICENCE IN LICENCE.MD",
   "main": "lib/index.js",
-  "main-when-published": "lib/index.js.eui",
+  "main-when-published": "lib/index.eui.js",
   "files": [
     "lib/*",
     "manifest.json"
