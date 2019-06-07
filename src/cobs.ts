@@ -2,7 +2,7 @@ import { splitBufferByLength, splitBufferWithDelimiter } from './utils'
 
 const debug = require('debug')('electricui-protocol-cobs')
 
-export const nullByteBuffer = Buffer.alloc(1)
+export const nullByteBuffer = Buffer.alloc(1, 0x00) // A single 0x00 byte in a buffer
 
 export function encode(buffer: Buffer): Buffer {
   debug(`Encoding packet`, buffer)
