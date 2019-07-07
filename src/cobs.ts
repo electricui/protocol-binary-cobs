@@ -1,4 +1,4 @@
-import { splitBufferByLength, splitBufferWithDelimiter } from './utils'
+import { splitBufferByLength, splitBufferWithDelimiter } from '@electricui/core'
 
 const debug = require('debug')('electricui-protocol-cobs')
 
