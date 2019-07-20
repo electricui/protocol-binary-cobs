@@ -29,14 +29,14 @@
     "mocha": "^5.2.0",
     "mochawesome": "^3.1.1",
     "nyc": "^13.3.0",
-    "rollup": "^1.9.1",
+    "rollup": "^1.17.0",
     "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-typescript": "^1.0.0",
-    "rollup-plugin-typescript2": "^0.19.2",
+    "rollup-plugin-typescript2": "^0.22.0",
     "sinon": "^7.2.3",
-    "ts-node": "^8.2.0",
-    "tslib": "^1.9.3",
-    "typescript": "^3.5.1"
+    "ts-node": "^8.3.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.5.3"
   },
   "scripts": {
     "prepack": "silversmith prepack",
