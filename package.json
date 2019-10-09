@@ -29,7 +29,7 @@
     "mocha": "^5.2.0",
     "mochawesome": "^3.1.1",
     "nyc": "^13.3.0",
-    "rollup": "^1.17.0",
+    "rollup": "^1.23.1",
     "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-typescript": "^1.0.0",
     "rollup-plugin-typescript2": "^0.22.0",
