@@ -66,3 +66,6 @@ lib
 
 # Rollup cache
 .rpt2_cache
+
+# Licence is stored in the root
+LICENCE
