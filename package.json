@@ -7,6 +7,7 @@
   "license": "SEE LICENCE IN LICENCE",
   "main": "lib/index.js",
   "main-when-published": "lib/index.eui.js",
+  "sideEffects": false,
   "types": "lib/index.d.ts",
   "files": [
     "lib/*",
