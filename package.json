@@ -34,7 +34,7 @@
     "sinon": "^7.2.3",
     "ts-node": "^8.5.4",
     "tslib": "^1.10.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "prepack": "silversmith prepack",
