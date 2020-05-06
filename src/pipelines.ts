@@ -1,8 +1,9 @@
 import { DuplexPipeline, Pipeline } from '@electricui/core'
-
 import { decode, encode, nullByteBuffer } from './cobs'
 
-const dPipelines = require('debug')('electricui-protocol-binary-cobs:pipelines')
+import debug from 'debug'
+
+const dPipelines = debug('electricui-protocol-binary-cobs:pipelines')
 
 export class COBSEncoderPipeline extends Pipeline {
   receive(packet: Buffer) {
@@ -29,11 +30,14 @@ export class COBSDecoderPipeline extends Pipeline {
           `...Found a delimiter, pushing a chunk up to the binary decoder`,
         )
 
-        promises.push(this.push(decode(framed)))
+        const decoded = decode(framed)
+        if (decoded.length > 0) {
+          promises.push(this.push(decoded))
+        }
       }
-
       data = data.slice(position + 1)
     }
+
     this.buffer = data
     dPipelines(`buffer leftover: `, this.buffer)
 
