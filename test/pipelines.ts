@@ -30,10 +30,7 @@ function generateTransformTest(testCase: Buffer) {
     const decoder = new COBSDecoderPipeline()
     const sink = new TestSink(spy)
 
-    source
-      .pipe(encoder)
-      .pipe(decoder)
-      .pipe(sink)
+    source.pipe(encoder).pipe(decoder).pipe(sink)
 
     source.push(testCase)
     assert.deepEqual(spy.getCall(0).args[0], testCase)
