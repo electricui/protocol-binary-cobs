@@ -1,4 +1,4 @@
-import { DuplexPipeline, Pipeline } from '@electricui/core'
+import { CancellationToken, DuplexPipeline, Pipeline } from '@electricui/core'
 import { decode, encode, nullByteBuffer } from './cobs'
 
 import debug from 'debug'
@@ -6,15 +6,15 @@ import debug from 'debug'
 const dPipelines = debug('electricui-protocol-binary-cobs:pipelines')
 
 export class COBSEncoderPipeline extends Pipeline {
-  receive(packet: Buffer) {
-    return this.push(encode(packet))
+  receive(packet: Buffer, cancellationToken: CancellationToken) {
+    return this.push(encode(packet), cancellationToken)
   }
 }
 
 export class COBSDecoderPipeline extends Pipeline {
   buffer = Buffer.alloc(0)
 
-  receive(packet: Buffer) {
+  receive(packet: Buffer, cancellationToken: CancellationToken) {
     const promises: Array<Promise<any>> = []
 
     dPipelines(`Received data to cobs decode`, packet)
@@ -32,7 +32,7 @@ export class COBSDecoderPipeline extends Pipeline {
 
         const decoded = decode(framed)
         if (decoded.length > 0) {
-          promises.push(this.push(decoded))
+          promises.push(this.push(decoded, cancellationToken))
         }
       }
       data = data.slice(position + 1)
