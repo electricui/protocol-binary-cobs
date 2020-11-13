@@ -1,6 +1,6 @@
 {
   "name": "@electricui/protocol-binary-cobs",
-  "version": "0.7.23-prerelease.14",
+  "version": "0.7.23-prerelease.15",
   "description": "ElectricUI COBS Encoder and Decoder",
   "electricui-dev": true,
   "author": "Electric UI <support@electricui.com> (https://electricui.com)",
@@ -14,7 +14,7 @@
     "manifest.json"
   ],
   "dependencies": {
-    "@electricui/core": "^0.7.23-prerelease.14",
+    "@electricui/core": "^0.7.23-prerelease.15",
     "debug": "^4.1.1"
   },
   "devDependencies": {
