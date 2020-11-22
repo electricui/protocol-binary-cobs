@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "@electricui/core": "^0.7.31",
-    "debug": "^4.1.1"
+    "debug": "^4.3.1"
   },
   "devDependencies": {
     "@electricui/build-rollup-config": "^0.7.23",
