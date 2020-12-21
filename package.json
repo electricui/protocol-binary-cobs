@@ -5,10 +5,14 @@
   "electricui-dev": true,
   "author": "Electric UI <support@electricui.com> (https://electricui.com)",
   "license": "SEE LICENCE IN LICENCE",
-  "main": "lib/index.js",
-  "main-when-published": "lib/index.eui.js",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "publishConfig": {
+    "main": "lib/cjs/index.eui.js",
+    "module": "lib/esm/index.eui.js"
+  },
   "sideEffects": false,
-  "types": "lib/index.d.ts",
+  "types": "lib/types/index.d.ts",
   "files": [
     "lib/*",
     "manifest.json"
