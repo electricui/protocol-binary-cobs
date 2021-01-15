@@ -24,18 +24,17 @@
   "devDependencies": {
     "@electricui/build-rollup-config": "^0.8.0",
     "@electricui/jest-config": "^0.8.0",
+    "@jest/globals": "^26.6.2",
     "@types/bluebird": "^3.5.25",
-    "@types/chai-subset": "^1.3.2",
     "@types/debug": "^4.1.1",
-    "@types/mocha": "^5.2.6",
     "@types/node": "^14.14.10",
     "@types/sinon": "^7.0.6",
-    "chai": "^4.2.0",
-    "chai-subset": "^1.6.0",
-    "mocha": "^5.2.0",
+    "jest": "^26.6.3",
+    "jest-circus": "^26.6.3",
     "nyc": "^13.3.0",
     "rollup": "2.34.1",
     "sinon": "^7.2.3",
+    "ts-jest": "^26.4.4",
     "ts-node": "^9.0.0",
     "tslib": "^2.0.3",
     "typescript": "^4.0.5"
@@ -45,7 +44,7 @@
     "postpack": "silversmith postpack",
     "benchmark": "babel-node benchmark.js",
     "build": "rm -rf ./lib && rollup -c",
-    "test": "export TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\"}' && mocha --require ts-node/register \"test/**/*.ts\" && export TS_NODE_COMPILER_OPTIONS=\"\"",
-    "coverage": "export TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\"}' && nyc mocha- -require ts-node/register \"test/**/*.ts\" && export TS_NODE_COMPILER_OPTIONS=\"\""
+    "test": "jest",
+    "watch": "jest --watch"
   }
 }

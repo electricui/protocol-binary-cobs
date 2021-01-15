@@ -1,86 +1,47 @@
-import 'mocha'
+import { describe, expect, it } from '@jest/globals'
 
-import * as chai from 'chai'
-import { resolveAny } from 'dns'
+import { decode } from '../src/cobs'
 
-import { encode } from '../src/cobs'
 
-const assert = chai.assert
-
-function generateEncoderEqualityTest(testCase: Buffer, reference: Buffer) {
+function generateDecoderEqualityTest(testCase: Buffer, reference: Buffer) {
   return () => {
-    const out = encode(testCase)
+    const out = decode(testCase)
 
-    assert.deepEqual(out, reference)
+    expect(out).toEqual(reference)
   }
 }
-/*
-function printBuf(buf: Buffer) {
-  let str = '{ '
 
-  let i = 0
-  for (const b of buf) {
-    str = `${str}0x${Buffer.from([b]).toString('hex')}, `
-    i++
-    if (i == 15) {
-      str += '\n'
-      i = 0
-    }
-  }
-
-  str += ' }'
-
-  console.log(str)
-}
-*/
-describe('COBS Encoder', () => {
+describe('COBS Decoder (assumes 0x00s are removed in a previous split operation)', () => {
   it(
-    'correctly encodes a single 0x00',
-    generateEncoderEqualityTest(
-      Buffer.from([0x00]),
-      Buffer.from([0x00, 0x01, 0x01, 0x00]),
-    ),
+    'correctly decodes a single 0x00',
+    generateDecoderEqualityTest(Buffer.from([0x01, 0x01]), Buffer.from([0x00])),
   )
-
   it(
-    'correctly encodes two 0x00s',
-    generateEncoderEqualityTest(
+    'correctly decodes two 0x00s',
+    generateDecoderEqualityTest(
+      Buffer.from([0x01, 0x01, 0x01]),
       Buffer.from([0x00, 0x00]),
-      Buffer.from([0x00, 0x01, 0x01, 0x01, 0x00]),
     ),
   )
-
   it(
-    'correctly encodes 11 22 00 33',
-    generateEncoderEqualityTest(
+    'correctly decodes 0x11 22 00 33',
+    generateDecoderEqualityTest(
+      Buffer.from([0x03, 0x11, 0x22, 0x02, 0x33]),
       Buffer.from([0x11, 0x22, 0x00, 0x33]),
-      Buffer.from([0x00, 0x03, 0x11, 0x22, 0x02, 0x33, 0x00]),
     ),
   )
-
   it(
-    'correctly encodes a search packet',
-    generateEncoderEqualityTest(
-      Buffer.from([0x00, 0x40, 0x01, 0x78, 0xc3, 0x55]),
-      Buffer.from([0x00, 0x01, 0x06, 0x40, 0x01, 0x78, 0xc3, 0x55, 0x00]),
-    ),
-  )
-
-  it(
-    'correctly encodes two 0x00s',
-    generateEncoderEqualityTest(
+    'correctly decodes 0x11 22 33 44',
+    generateDecoderEqualityTest(
+      Buffer.from([0x05, 0x11, 0x22, 0x33, 0x44]),
       Buffer.from([0x11, 0x22, 0x33, 0x44]),
-      Buffer.from([0x00, 0x05, 0x11, 0x22, 0x33, 0x44, 0x00]),
     ),
   )
 
   it(
-    'correctly encodes a large Buffer (> 255 bytes)',
-    generateEncoderEqualityTest(
-      Buffer.from(Array(257).join('ee'), 'hex'),
-
+    'correctly decodes a large Buffer (> 255 bytes)',
+    generateDecoderEqualityTest(
       Buffer.from([
-        0x00,
         0xff,
         0xee,
         0xee,
@@ -339,8 +300,9 @@ describe('COBS Encoder', () => {
         0x03,
         0xee,
         0xee,
-        0x00,
       ]),
+
+      Buffer.from(Array(257).join('ee'), 'hex'),
     ),
   )
 })

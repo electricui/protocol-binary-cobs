@@ -1,13 +1,9 @@
-import 'mocha'
-
-import * as chai from 'chai'
+import { describe, expect, it } from '@jest/globals'
 import * as sinon from 'sinon'
 
-import { Sink, Source } from '@electricui/core'
+import { Sink, Source, CancellationToken } from '@electricui/core'
 
 import { COBSDecoderPipeline, COBSEncoderPipeline } from '../src/pipelines'
-
-const assert = chai.assert
 
 class TestSink extends Sink {
   callback: (chunk: any) => void
@@ -32,8 +28,10 @@ function generateTransformTest(testCase: Buffer) {
 
     source.pipe(encoder).pipe(decoder).pipe(sink)
 
-    source.push(testCase)
-    assert.deepEqual(spy.getCall(0).args[0], testCase)
+    source.push(testCase, new CancellationToken().deadline(1000))
+
+    expect(spy.getCall(0).args[0]).toEqual(testCase)
+
   }
 }
 
