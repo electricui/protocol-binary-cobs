@@ -14,7 +14,7 @@ export class COBSEncoderPipeline extends Pipeline {
 export class COBSDecoderPipeline extends Pipeline {
   buffer = Buffer.alloc(0)
 
-  receive(packet: Buffer, cancellationToken: CancellationToken) {
+  async receive(packet: Buffer, cancellationToken: CancellationToken) {
     const promises: Array<Promise<any>> = []
 
     dPipelines(`Received data to cobs decode`, packet)
@@ -26,9 +26,7 @@ export class COBSDecoderPipeline extends Pipeline {
       const framed = data.slice(0, position)
 
       if (framed.length > 0) {
-        dPipelines(
-          `...Found a delimiter, pushing a chunk up to the binary decoder`,
-        )
+        dPipelines(`...Found a delimiter, pushing a chunk up to the binary decoder`)
 
         const decoded = decode(framed)
         if (decoded.length > 0) {
