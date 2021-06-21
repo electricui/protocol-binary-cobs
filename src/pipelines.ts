@@ -39,7 +39,7 @@ export class COBSDecoderPipeline extends Pipeline {
     this.buffer = data
     dPipelines(`buffer leftover: `, this.buffer)
 
-    return Promise.all(promises)
+    await Promise.all(promises)
   }
 }
 
