@@ -18,6 +18,7 @@
     "manifest.json"
   ],
   "dependencies": {
+    "@electricui/async-utilities": "^0.8.8",
     "@electricui/core": "^0.8.9",
     "debug": "^4.3.1"
   },

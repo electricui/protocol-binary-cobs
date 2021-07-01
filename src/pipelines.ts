@@ -1,5 +1,6 @@
-import { CancellationToken, DuplexPipeline, Pipeline } from '@electricui/core'
+import { DuplexPipeline, Pipeline } from '@electricui/core'
 import { decode, encode, nullByteBuffer } from './cobs'
+import { CancellationToken } from '@electricui/async-utilities'
 
 import debug from 'debug'
 
