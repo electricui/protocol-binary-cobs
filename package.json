@@ -14,7 +14,7 @@
   "sideEffects": false,
   "types": "lib/types/index.d.ts",
   "files": [
-    "lib/*",
+    "lib/**/*",
     "manifest.json"
   ],
   "dependencies": {
