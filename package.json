@@ -18,13 +18,13 @@
     "manifest.json"
   ],
   "dependencies": {
-    "@electricui/async-utilities": "^0.8.8",
-    "@electricui/core": "^0.8.9",
+    "@electricui/async-utilities": "workspace:*",
+    "@electricui/core": "workspace:*",
     "debug": "^4.3.1"
   },
   "devDependencies": {
-    "@electricui/build-rollup-config": "^0.8.0",
-    "@electricui/jest-config": "^0.8.0",
+    "@electricui/build-rollup-config": "workspace:*",
+    "@electricui/jest-config": "workspace:*",
     "@jest/globals": "^26.6.2",
     "@types/bluebird": "^3.5.25",
     "@types/debug": "^4.1.1",
