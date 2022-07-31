@@ -1,6 +1,6 @@
 {
   "name": "@electricui/protocol-binary-cobs",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "ElectricUI COBS Encoder and Decoder",
   "electricui-dev": true,
   "author": "Electric UI <support@electricui.com> (https://electricui.com)",
