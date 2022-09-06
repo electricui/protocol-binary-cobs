@@ -45,7 +45,7 @@
     "postpack": "silversmith postpack",
     "benchmark": "babel-node benchmark.js",
     "build": "rm -rf ./lib && rollup -c",
-    "test": "jest",
+    "test": "jest --runInBand",
     "watch": "jest --watch"
   }
 }
