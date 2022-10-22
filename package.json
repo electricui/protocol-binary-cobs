@@ -20,7 +20,7 @@
   "dependencies": {
     "@electricui/async-utilities": "workspace:*",
     "@electricui/core": "workspace:*",
-    "debug": "^4.3.1"
+    "debug": "^4.3.4"
   },
   "devDependencies": {
     "@electricui/build-rollup-config": "workspace:*",
